@@ -3,7 +3,7 @@
 struct PrintOnDrop(&'static str);
 impl Drop for PrintOnDrop {
     fn drop(&mut self) {
-        print!("{}", self.0);
+        eprint!("{}", self.0);
     }
 }
 
