@@ -6,5 +6,7 @@ src = "src"
 title = "Unfair Rust Quiz"
 
 [output.html]
+additional-css = ["assets/quiz.css"]
+additional-js = ["assets/quiz.js"]
 no-section-label = true
 playground.runnable = false
