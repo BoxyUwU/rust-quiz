@@ -1,0 +1,12 @@
+error[E0119]: conflicting implementations of trait `Overlap<_>` for type `()`
+ --> examples/trait_solver_5.rs:6:1
+  |
+5 | impl<T, U: Sub<T>> Overlap<T> for U {}
+  | ----------------------------------- first implementation here
+6 | impl<T> Overlap<T> for () {}
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^ conflicting implementation for `()`
+  |
+  = note: downstream crates may implement trait `Sub<_>` for type `()`
+
+For more information about this error, try `rustc --explain E0119`.
+error: could not compile `code` (example "trait_solver_5") due to 1 previous error

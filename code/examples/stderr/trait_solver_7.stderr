@@ -1,0 +1,16 @@
+error[E0597]: `local` does not live long enough
+  --> examples/trait_solver_7.rs:11:13
+   |
+10 |     let local = 0;
+   |         ----- binding `local` declared here
+11 |     let r = &local;
+   |             ^^^^^^ borrowed value does not live long enough
+12 |     require_box(Box::new(r));
+   |                 ----------- cast requires that `local` is borrowed for `'static`
+13 | }
+   | - `local` dropped here while still borrowed
+   |
+   = note: due to object lifetime defaults, `Box<dyn Cat>` actually means `Box<(dyn Cat + 'static)>`
+
+For more information about this error, try `rustc --explain E0597`.
+error: could not compile `code` (example "trait_solver_7") due to 1 previous error
