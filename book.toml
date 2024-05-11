@@ -4,3 +4,7 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Unfair Rust Quiz"
+
+[output.html]
+no-section-label = true
+playground.runnable = false
