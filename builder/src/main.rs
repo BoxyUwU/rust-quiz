@@ -9,6 +9,8 @@ fn main() -> eyre::Result<()> {
     let examples = std::fs::read_dir(&examples_dir)
         .wrap_err("opening ../code/examples, script must be run in ./builder")?;
 
+    install_toolchain(&examples_dir).wrap_err("install toolchain")?;
+
     for example in examples {
         let example = example.wrap_err("reading example dir entry")?;
         if example
@@ -35,15 +37,17 @@ fn run_example(examples_dir: &Path, filename: &str) -> eyre::Result<()> {
 
     eprintln!("Running {example_name}");
 
-    let mut proc = std::process::Command::new("cargo");
-    proc.current_dir(examples_dir);
+    let mut cmd = std::process::Command::new("cargo");
+    cmd.current_dir(examples_dir);
     if use_miri {
-        proc.arg("miri");
+        cmd.arg("miri");
     }
-    proc.arg("run").arg("--quiet").arg("--example");
-    proc.arg(example_name);
+    cmd.arg("run").arg("--quiet").arg("--example");
+    cmd.arg(example_name);
 
-    let out = proc.output().wrap_err("spawning cargo")?;
+    remove_rustup_vars(&mut cmd);
+
+    let out = cmd.output().wrap_err("spawning cargo")?;
     let stderr = String::from_utf8(out.stderr).wrap_err("stderr was invalid UTF-8")?;
 
     let stderr_dir = examples_dir.join("stderr");
@@ -52,4 +56,25 @@ fn run_example(examples_dir: &Path, filename: &str) -> eyre::Result<()> {
         .wrap_err_with(|| format!("writing stderr to {}", path.display()))?;
 
     Ok(())
+}
+
+// Ensure there is output for the toolchain and that the installation doesn't pollute stderr.
+fn install_toolchain(examples_dir: &Path) -> eyre::Result<()> {
+    let mut toolchain_install = std::process::Command::new("rustc");
+    toolchain_install.arg("-V");
+    toolchain_install.current_dir(examples_dir);
+    remove_rustup_vars(&mut toolchain_install);
+    toolchain_install
+        .spawn()
+        .wrap_err("failed to spawn rustc")?
+        .wait()
+        .wrap_err("failed to wait for rustc")?;
+
+    Ok(())
+}
+
+fn remove_rustup_vars(cmd: &mut std::process::Command) {
+    // Ensure rustup picks up the rust-toolchain.toml file properly and doesn't get confused by this cargo run.
+    cmd.env_remove("CARGO");
+    cmd.env_remove("RUSTUP_TOOLCHAIN");
 }
