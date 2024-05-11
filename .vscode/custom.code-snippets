@@ -1,0 +1,64 @@
+{
+    // Place your snippets for markdown here. Each snippet is defined under a snippet name and has a prefix, body and 
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+    // same ids are connected.
+    // Example:
+    // "Print to console": {
+    // 	"prefix": "log",
+    // 	"body": [
+    // 		"console.log('$1');",
+    // 		"$2"
+    // 	],
+    // 	"description": "Log output to console"
+    // }
+    "include_quiz_code": {
+        "scope": "rust,markdown",
+        "prefix": "quiz_include",
+        "body": [
+            "{{#include ../../code/examples/${TM_DIRECTORY/.*\\x2f(\\w+)/${1}/}_${TM_FILENAME_BASE}.rs}}",
+            // everything before slash (see above) --------\_____/\____/ \__/   ^^^^^^^^^^^^^^^^^^^--- filename without extension
+            //                                                       |   /
+            //                                                    dir name
+        ],
+        "description": "add an include for code for the boxy/etc rust quiz"
+    },
+    "quiz_skeleton": {
+        "scope": "markdown",
+        "prefix": "quiz_skeleton",
+        "body": [
+            // the directory of the file: `blahblah/trait_solver/1.md`, for example
+            //   |
+            //   |      everything before the first forward slash (/) 
+            //   |      (\x2f escapes it, so it is not recognized as part of the regex thing)
+            //   |            |
+            //   |            |
+            //   vvvvvvvvvvvv vvvvvvv
+            "# ${TM_DIRECTORY/.*\\x2f([A-Za-z]+)(_([A-Za-z]+))?(_([A-Za-z]+))?/${1:/capitalize}${3:+ }${3:/capitalize}${5:+ }${5:/capitalize}/} ${TM_FILENAME_BASE} @BoxyUwU",
+            //                       ^^^^^^^^^^^  ^^^^^^^^^^^    ^^^^^^^^^^^   \______________/\_____________________/\_____________________/   ^^^^^^^^^^^^^^^^^^  ^^^^^^^^ ---- usernames of the authors
+            //                      /                  |              |               |                    |                    |                        |                        (e.g. "@BoxyUwU")
+            // first word (e.g. "trait") (group 1)     |              |    capitalize the first word       |                    |             base of the filename
+            //                                         |              |                                    |                    |             (withou the ext) (e.g.: "1")
+            // second word (e.g. "solver") (group 3) --+              |    capitalize the second word, \   |                    |
+            //                                                        |    adding a space before it,   +---+                    |
+            // third word (e.g. "") (group 5) ------------------------+    if it's non-empty           /            capitalize the third word,  
+            //                                                                                                      adding a space before it,
+            //                                                                                                      if it's non-empty       
+            "",
+            "```rust",
+            "{{#include ../../code/examples/${TM_DIRECTORY/.*\\x2f(\\w+)/${1}/}_${TM_FILENAME_BASE}.rs}}",
+            // everything before slash (see above) --------\_____/\____/ \__/   ^^^^^^^^^^^^^^^^^^^--- filename without extension
+            //                                                       |   /
+            //                                                    dir name
+            "```",
+            "",
+            "<details>",
+            "<summary>Solution</summary>",
+            "",
+            "",
+            "",
+            "</details>",
+            ""
+        ]
+    }
+}
