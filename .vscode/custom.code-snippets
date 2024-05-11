@@ -55,7 +55,12 @@
             "<details>",
             "<summary>Solution</summary>",
             "",
-            "",
+            "```",
+            "{{#include ../../code/examples/stderr/${TM_DIRECTORY/.*\\x2f(\\w+)/${1}/}_${TM_FILENAME_BASE}.stderr}}",
+            // everything before slash (see above) --------\_____/\____/ \__/   ^^^^^^^^^^^^^^^^^^^--- filename without extension
+            //                                                       |   /
+            //                                                    dir name
+            "```",
             "",
             "</details>",
             ""
