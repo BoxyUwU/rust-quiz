@@ -1,6 +1,43 @@
-<!-- idea by orlp -->
+# Misc 1
+
+The idea for this question was suggested by [`@orlp`](https://github.com/orlp/).
+
+What does this program print?
 
 ```rust
-((a, b, c, d), panic()); // Drops in order a, b, c, d.
-((a, b, c, d, panic())); // Drops in order d, c, b, a.
+struct PrintOnDrop(&'static str);
+impl Drop for PrintOnDrop {
+    fn drop(&mut self) {
+        print!("{}", self.0);
+    }
+}
+
+fn main() {
+    owo();
+    uwu();
+}
+
+fn owo() {
+    ((PrintOnDrop("1"), PrintOnDrop("2"), PrintOnDrop("3")), return);
+}
+
+fn uwu() {
+    (PrintOnDrop("1"), PrintOnDrop("2"), PrintOnDrop("3"), return);
+}
 ```
+
+<details>
+<summary>Solution</summary>
+
+```
+123321
+```
+
+Every expression in the outermost tuple is evaluated from left to right.
+`return` is the last expression, at which point the function returns and all tuple elements are dropped.
+When an expression during tuple construction causes drops to be invoked, all elements are dropped from last to first.
+This is a general rule for local variables or temporaries in Rust and also applies to local variables.
+
+But in `owo`, the first element is a fully constructed tuple, which is dropped the same way all structures are - from first to last.
+
+</details>

@@ -1,6 +1,6 @@
 # Unsafe
 
-This chapter contains questions about unsafe code and undefined behavior.
+This category contains questions about unsafe code and undefined behavior.
 For every code snippet, the question is whether the code, as executed, is UB or whether it is sound.
 When the snippet has UB, explain exactly *where* it is UB and why.
 
