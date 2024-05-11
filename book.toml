@@ -1,0 +1,6 @@
+[book]
+authors = ["BoxyUwU"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Unfair Rust Quiz"
