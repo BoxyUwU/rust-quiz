@@ -1,6 +1,6 @@
-<!-- idea for the pattern by orlp -->
-
 # Unsafe 1
+
+The idea for this question was suggested by [`@orlp`](https://github.com/orlp/).
 
 ```rust
 fn main() {
