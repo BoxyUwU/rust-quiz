@@ -23,6 +23,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Generate stderr files
+        run: |
+          cd builder
+          cargo run
+      
+      - name: Verify that stderr files are up to date
+        run: git diff --exit-code code/examples/stderr
+
       - name: Install mdBook
         run: curl -L https://github.com/rust-lang/mdBook/releases/download/v${MDBOOK_VERSION}/mdbook-v${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz | tar -xzC ~/.cargo/bin mdbook
 
