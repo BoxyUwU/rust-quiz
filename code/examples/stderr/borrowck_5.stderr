@@ -1,0 +1,28 @@
+error[E0499]: cannot borrow `*map` as mutable more than once at a time
+ --> examples/borrowck_5.rs:8:5
+  |
+3 | fn get_or_insert_1234(map: &mut HashMap<u32, u64>) -> &mut u64 {
+  |                            - let's call the lifetime of this reference `'1`
+4 |     if let Some(v) = map.get_mut(&0) {
+  |                      --- first mutable borrow occurs here
+5 |         return v;
+  |                - returning this value requires that `*map` is borrowed for `'1`
+...
+8 |     map.insert(0, 1234);
+  |     ^^^ second mutable borrow occurs here
+
+error[E0499]: cannot borrow `*map` as mutable more than once at a time
+ --> examples/borrowck_5.rs:9:5
+  |
+3 | fn get_or_insert_1234(map: &mut HashMap<u32, u64>) -> &mut u64 {
+  |                            - let's call the lifetime of this reference `'1`
+4 |     if let Some(v) = map.get_mut(&0) {
+  |                      --- first mutable borrow occurs here
+5 |         return v;
+  |                - returning this value requires that `*map` is borrowed for `'1`
+...
+9 |     map.get_mut(&0).unwrap()
+  |     ^^^ second mutable borrow occurs here
+
+For more information about this error, try `rustc --explain E0499`.
+error: could not compile `code` (example "borrowck_5") due to 2 previous errors

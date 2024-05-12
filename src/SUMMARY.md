@@ -21,3 +21,11 @@
 - [Trait Solver 5](./trait_solver/5.md)
 - [Trait Solver 6](./trait_solver/6.md)
 - [Trait Solver 7](./trait_solver/7.md)
+
+# Borrowck
+
+- [Borrowck 1](./borrowck/1.md)
+- [Borrowck 2](./borrowck/2.md)
+- [Borrowck 3](./borrowck/3.md)
+- [Borrowck 4](./borrowck/4.md)
+- [Borrowck 5](./borrowck/5.md)
