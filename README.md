@@ -1,3 +1,3 @@
 # rust-quiz
 
-https://boxyuwu.github.io/rust-quiz/
+https://this.quiz.is.fckn.gay
