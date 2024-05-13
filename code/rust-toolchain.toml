@@ -1,4 +1,5 @@
 # We want to pin the precise toolchain used to make sure everything is reproducible.
 [toolchain]
 channel = "nightly-2024-05-10"
+profile = "minimal"
 components = ["miri", "rust-src"]
