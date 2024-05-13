@@ -11,6 +11,7 @@
 # Miscellaneous
 
 - [Miscellaneous 1](./misc/1.md)
+- [Miscellaneous 8](./misc/8.md)
 
 # Trait Solver
 

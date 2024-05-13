@@ -1,0 +1,8 @@
+error[E0321]: cross-crate traits with a default impl, like `Unpin`, can only be implemented for a struct/enum type, not `(dyn MyUnpinTrait + 'static)`
+  --> examples/misc_8.rs:30:1
+   |
+30 | impl Unpin for dyn MyUnpinTrait {}
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ can't implement cross-crate trait with a default impl for non-struct/enum type
+
+For more information about this error, try `rustc --explain E0321`.
+error: could not compile `code` (example "misc_8") due to 1 previous error
