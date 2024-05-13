@@ -22,10 +22,10 @@
 - [Trait Solver 6](./trait_solver/6.md)
 - [Trait Solver 7](./trait_solver/7.md)
 
-# Borrowck
+# Borrow Checker
 
-- [Borrowck 1](./borrowck/1.md)
-- [Borrowck 2](./borrowck/2.md)
-- [Borrowck 3](./borrowck/3.md)
-- [Borrowck 4](./borrowck/4.md)
-- [Borrowck 5](./borrowck/5.md)
+- [Borrow Checker 1](./borrowck/1.md)
+- [Borrow Checker 2](./borrowck/2.md)
+- [Borrow Checker 3](./borrowck/3.md)
+- [Borrow Checker 4](./borrowck/4.md)
+- [Borrow Checker 5](./borrowck/5.md)
