@@ -1,0 +1,13 @@
+error[E0308]: mismatched types
+  --> examples/misc_2.rs:21:5
+   |
+16 | fn main() {
+   |          - expected `()` because of default return type
+...
+21 |     dbg!(data)
+   |     ^^^^^^^^^^ expected `()`, found `Data`
+   |
+   = note: this error originates in the macro `dbg` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `code` (example "misc_2") due to 1 previous error

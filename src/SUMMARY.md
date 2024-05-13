@@ -11,6 +11,11 @@
 # Miscellaneous
 
 - [Miscellaneous 1](./misc/1.md)
+- [Miscellaneous 2](./misc/2.md)
+- [Miscellaneous 3](./misc/3.md)
+- [Miscellaneous 4](./misc/4.md)
+- [Miscellaneous 5](./misc/5.md)
+- [Miscellaneous 6](./misc/6.md)
 
 # Trait Solver
 

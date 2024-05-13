@@ -1,24 +1,10 @@
-#![allow(unreachable_code)]
-
-struct PrintOnDrop(&'static str);
-impl Drop for PrintOnDrop {
-    fn drop(&mut self) {
-        eprint!("{}", self.0);
-    }
+pub unsafe const fn my_zeroed<T>() -> T {
+    assert!(std::mem::size_of::<T>() <= 256);
+    std::mem::transmute_copy(&[0u8; 256])
 }
 
 fn main() {
-    owo();
-    uwu();
-}
-
-fn owo() {
-    (
-        (PrintOnDrop("1"), PrintOnDrop("2"), PrintOnDrop("3")),
-        return,
-    );
-}
-
-fn uwu() {
-    (PrintOnDrop("1"), PrintOnDrop("2"), PrintOnDrop("3"), return);
+    unsafe {
+        my_zeroed::<[*mut u32; 64]>();
+    }
 }

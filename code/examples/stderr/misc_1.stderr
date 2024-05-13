@@ -1,1 +1,12 @@
-123321
+error: expected one of `extern` or `fn`, found keyword `const`
+ --> examples/misc_1.rs:1:12
+  |
+1 | pub unsafe const fn my_zeroed<T>() -> T {
+  |     -------^^^^^
+  |     |      |
+  |     |      expected one of `extern` or `fn`
+  |     help: `const` must come before `unsafe`: `const unsafe`
+  |
+  = note: keyword order for functions declaration is `pub`, `default`, `const`, `async`, `unsafe`, `extern`
+
+error: could not compile `code` (example "misc_1") due to 1 previous error
