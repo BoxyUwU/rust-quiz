@@ -1,4 +1,4 @@
-use std::path::Path;
+use std::{path::Path, thread};
 
 use eyre::{Context, OptionExt};
 
@@ -11,19 +11,35 @@ fn main() -> eyre::Result<()> {
 
     install_toolchain(&examples_dir).wrap_err("install toolchain")?;
 
-    for example in examples {
-        let example = example.wrap_err("reading example dir entry")?;
-        if example
-            .file_type()
-            .wrap_err("getting file type of entry")?
-            .is_dir()
-        {
-            continue;
+    thread::scope(|scope| {
+        let mut handles = Vec::new();
+
+        for example in examples {
+            handles.push(scope.spawn(|| {
+                let example = example.wrap_err("reading example dir entry")?;
+                if example
+                    .file_type()
+                    .wrap_err("getting file type of entry")?
+                    .is_dir()
+                {
+                    return Ok(());
+                }
+
+                run_example(&examples_dir, &example.file_name().to_str().unwrap())
+                    .wrap_err_with(|| format!("running {:?}", example.file_name()))
+            }));
         }
 
-        run_example(&examples_dir, &example.file_name().to_str().unwrap())
-            .wrap_err_with(|| format!("running {:?}", example.file_name()))?;
-    }
+        handles
+            .into_iter()
+            .map(|handle| {
+                handle
+                    .join()
+                    .unwrap_or_else(|payload| std::panic::resume_unwind(payload))
+            })
+            .filter_map(|res| res.err())
+            .for_each(|err| eprint!("error while running example: {err}"));
+    });
 
     Ok(())
 }
