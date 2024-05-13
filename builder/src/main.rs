@@ -11,6 +11,14 @@ fn main() -> eyre::Result<()> {
 
     install_toolchain(&examples_dir).wrap_err("install toolchain")?;
 
+    // Setup miri to avoid race condition in `cargo miri run` below...
+    eprintln!("Setting up miri");
+    std::process::Command::new("cargo")
+        .arg("miri")
+        .arg("setup")
+        .output()
+        .wrap_err("setting up miri")?;
+
     thread::scope(|scope| {
         let mut handles = Vec::new();
 
