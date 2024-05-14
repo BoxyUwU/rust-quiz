@@ -1,0 +1,20 @@
+error[E0382]: use of moved value: `x`
+  --> examples/borrowck_6.rs:14:13
+   |
+12 | pub fn r2_twice(x: R2) {
+   |                 - move occurs because `x` has type `R2<'_>`, which does not implement the `Copy` trait
+13 |     r2_once(x);
+   |             - value moved here
+14 |     r2_once(x);
+   |             ^ value used here after move
+   |
+note: consider changing this parameter type in function `r2_once` to borrow instead if owning the value isn't necessary
+  --> examples/borrowck_6.rs:5:15
+   |
+5  | fn r2_once(_: R2){}
+   |    -------    ^^ this parameter takes ownership of the value
+   |    |
+   |    in this function
+
+For more information about this error, try `rustc --explain E0382`.
+error: could not compile `code` (example "borrowck_6") due to 1 previous error
