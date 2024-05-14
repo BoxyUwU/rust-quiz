@@ -4,4 +4,4 @@
 
 TODO
 
-repo: https://github.com/BoxyUwU/rust-quiz
+repo: <https://github.com/BoxyUwU/rust-quiz>
