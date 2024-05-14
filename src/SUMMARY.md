@@ -34,3 +34,4 @@
 - [Borrow Checker 3](./borrowck/3.md)
 - [Borrow Checker 4](./borrowck/4.md)
 - [Borrow Checker 5](./borrowck/5.md)
+- [Borrow Checker 6](./borrowck/6.md)
