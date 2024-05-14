@@ -1,3 +1,3 @@
 # rust-quiz
 
-https://this.quiz.is.fckn.gay
+<https://this.quiz.is.fckn.gay>
