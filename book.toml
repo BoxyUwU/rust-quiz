@@ -8,5 +8,6 @@ title = "Unfair Rust Quiz"
 [output.html]
 additional-css = ["assets/quiz.css"]
 additional-js = ["assets/quiz.js"]
+git-repository-url = "https://github.com/BoxyUwU/rust-quiz"
 no-section-label = true
 playground.runnable = false
