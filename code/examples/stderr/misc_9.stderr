@@ -1,0 +1,23 @@
+error[E0423]: expected value, found struct `C`
+  --> examples/misc_9.rs:12:5
+   |
+1  | struct A;
+   | --------- similarly named unit struct `A` defined here
+2  | struct B();
+3  | struct C {}
+   | ----------- `C` defined here
+...
+12 |     C;
+   |     ^
+   |
+help: use struct literal syntax instead
+   |
+12 |     C {};
+   |     ~~~~
+help: a unit struct with a similar name exists
+   |
+12 |     A;
+   |     ~
+
+For more information about this error, try `rustc --explain E0423`.
+error: could not compile `code` (example "misc_9") due to 1 previous error
