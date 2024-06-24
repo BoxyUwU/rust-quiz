@@ -1,15 +1,21 @@
-struct A;
-struct B();
-struct C {}
+struct Unit;
+struct Tuple();
+struct Struct {}
 
 fn main() {
-    A {};
-    A { .. } = A { ..A };
+    Unit {};
+    Tuple {};
+    Struct {};
 
-    B {};
-    C {};
+    Unit();
+    Tuple();
+    Struct();
 
-    A;
-    B;
-    C;
+    Unit;
+    Tuple;
+    Struct;
+
+    Unit { .. } = Unit { ..Unit };
+    Tuple { .. } = Tuple { ..Tuple() };
+    Struct { .. } = Struct { ..Struct {} };
 }
