@@ -1,5 +1,5 @@
 error[E0423]: expected value, found struct `C`
-  --> examples/misc_9.rs:12:5
+  --> examples/misc_9.rs:14:5
    |
 1  | struct A;
    | --------- similarly named unit struct `A` defined here
@@ -7,16 +7,16 @@ error[E0423]: expected value, found struct `C`
 3  | struct C {}
    | ----------- `C` defined here
 ...
-12 |     C;
+14 |     C;
    |     ^
    |
 help: use struct literal syntax instead
    |
-12 |     C {};
+14 |     C {};
    |     ~~~~
 help: a unit struct with a similar name exists
    |
-12 |     A;
+14 |     A;
    |     ~
 
 For more information about this error, try `rustc --explain E0423`.
