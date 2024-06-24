@@ -4,6 +4,8 @@ struct C {}
 
 fn main() {
     A {};
+    A { .. } = A { ..A };
+
     B {};
     C {};
 
