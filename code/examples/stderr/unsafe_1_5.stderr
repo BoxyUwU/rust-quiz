@@ -1,13 +1,13 @@
 error: Undefined Behavior: memory access failed: null pointer is a dangling pointer (it has no provenance)
- --> examples/unsafe_1_3.rs:6:14
+ --> examples/unsafe_1_5.rs:5:18
   |
-6 |         _ = (*std::ptr::null::<u32>(),);
-  |              ^^^^^^^^^^^^^^^^^^^^^^^^ memory access failed: null pointer is a dangling pointer (it has no provenance)
+5 |     _ = unsafe { *std::ptr::null::<u32>() };
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^ memory access failed: null pointer is a dangling pointer (it has no provenance)
   |
   = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior
   = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information
   = note: BACKTRACE:
-  = note: inside `main` at examples/unsafe_1_3.rs:6:14: 6:38
+  = note: inside `main` at examples/unsafe_1_5.rs:5:18: 5:42
 
 note: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace
 
