@@ -1,8 +1,8 @@
 error[E0433]: failed to resolve: use of undeclared type `HashMap`
- --> examples/misc_4.rs:2:15
+ --> examples/misc_4.rs:2:19
   |
-2 |     let map = HashMap::new();
-  |               ^^^^^^^ use of undeclared type `HashMap`
+2 |     let mut map = HashMap::new();
+  |                   ^^^^^^^ use of undeclared type `HashMap`
   |
 help: consider importing this struct
   |
