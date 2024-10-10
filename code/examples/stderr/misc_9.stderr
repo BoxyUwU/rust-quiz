@@ -1,10 +1,19 @@
 error[E0423]: expected value, found struct `Struct`
-  --> examples/misc_9.rs:16:5
+ --> examples/misc_9.rs:8:5
+  |
+3 | struct Struct {}
+  | ---------------- `Struct` defined here
+...
+8 |     Struct;
+  |     ^^^^^^ help: use struct literal syntax instead: `Struct {}`
+
+error[E0423]: expected value, found struct `Struct`
+  --> examples/misc_9.rs:20:5
    |
 3  | struct Struct {}
    | ---------------- `Struct` defined here
 ...
-16 |     Struct;
+20 |     Struct = Struct {};
    |     ^^^^^^ help: use struct literal syntax instead: `Struct {}`
 
 error[E0618]: expected function, found struct `Unit`
@@ -33,6 +42,14 @@ error[E0423]: expected function, tuple struct or tuple variant, found struct `St
 12 |     Struct();
    |     ^^^^^^^^ help: use struct literal syntax instead: `Struct {}`
 
-Some errors have detailed explanations: E0423, E0618.
-For more information about an error, try `rustc --explain E0423`.
-error: could not compile `code` (example "misc_9") due to 3 previous errors
+error[E0070]: invalid left-hand side of assignment
+  --> examples/misc_9.rs:19:11
+   |
+19 |     Tuple = Tuple();
+   |     ----- ^
+   |     |
+   |     cannot assign to this expression
+
+Some errors have detailed explanations: E0070, E0423, E0618.
+For more information about an error, try `rustc --explain E0070`.
+error: could not compile `code` (example "misc_9") due to 5 previous errors
