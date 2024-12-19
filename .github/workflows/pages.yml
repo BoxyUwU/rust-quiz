@@ -35,7 +35,9 @@ jobs:
         run: curl -L https://github.com/rust-lang/mdBook/releases/download/v${MDBOOK_VERSION}/mdbook-v${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz | tar -xzC ~/.cargo/bin mdbook
 
       - name: Build with mdBook
-        run: mdbook build
+        run: |
+          mdbook build
+          echo "this.quiz.is.fckn.gay" > book/CNAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
