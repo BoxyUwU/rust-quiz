@@ -1,0 +1,13 @@
+error[E0533]: expected value, found struct variant `A::Two`
+  --> examples/misc_10.rs:11:20
+   |
+11 |     println!("{}", A::Two as usize);
+   |                    ^^^^^^ not a value
+   |
+help: you might have meant to create a new value of the struct
+   |
+11 |     println!("{}", A::Two {} as usize);
+   |                           ++
+
+For more information about this error, try `rustc --explain E0533`.
+error: could not compile `code` (example "misc_10") due to 1 previous error
