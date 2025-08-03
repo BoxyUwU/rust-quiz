@@ -6,7 +6,7 @@ error[E0597]: `local` does not live long enough
 11 |     let r = &local;
    |             ^^^^^^ borrowed value does not live long enough
 12 |     require_box(Box::new(r));
-   |                 ----------- cast requires that `local` is borrowed for `'static`
+   |                 ----------- coercion requires that `local` is borrowed for `'static`
 13 | }
    | - `local` dropped here while still borrowed
    |

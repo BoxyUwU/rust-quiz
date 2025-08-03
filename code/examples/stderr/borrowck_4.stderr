@@ -12,10 +12,6 @@ error[E0505]: cannot move out of `foo` because it is borrowed
   |     borrow later used here
   |
   = note: this error originates in the macro `dbg` (in Nightly builds, run with -Z macro-backtrace for more info)
-help: consider cloning the value if the performance cost is acceptable
-  |
-7 |     mutate(&mut foo).clone();
-  |                     ++++++++
 
 For more information about this error, try `rustc --explain E0505`.
 error: could not compile `code` (example "borrowck_4") due to 1 previous error
