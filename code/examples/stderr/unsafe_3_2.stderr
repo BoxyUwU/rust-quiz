@@ -1,20 +1,20 @@
-error: Undefined Behavior: attempting a write access using <2620> at alloc1189[0x1], but that tag does not exist in the borrow stack for this location
+error: Undefined Behavior: attempting a write access using <1665> at alloc871[0x1], but that tag does not exist in the borrow stack for this location
  --> examples/unsafe_3_2.rs:9:9
   |
 9 |         *r1 = 10;
   |         ^^^^^^^^
   |         |
-  |         attempting a write access using <2620> at alloc1189[0x1], but that tag does not exist in the borrow stack for this location
-  |         this error occurs as part of an access at alloc1189[0x1..0x2]
+  |         attempting a write access using <1665> at alloc871[0x1], but that tag does not exist in the borrow stack for this location
+  |         this error occurs as part of an access at alloc871[0x1..0x2]
   |
   = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental
   = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information
-help: <2620> was created by a SharedReadWrite retag at offsets [0x1..0x2]
+help: <1665> was created by a SharedReadWrite retag at offsets [0x1..0x2]
  --> examples/unsafe_3_2.rs:7:27
   |
 7 |         let r1: *mut u8 = v.get_unchecked_mut(1);
   |                           ^^^^^^^^^^^^^^^^^^^^^^
-help: <2620> was later invalidated at offsets [0x0..0xa] by a Unique retag
+help: <1665> was later invalidated at offsets [0x0..0xa] by a Unique retag
  --> examples/unsafe_3_2.rs:8:27
   |
 8 |         let r2: *mut u8 = v.get_unchecked_mut(2);

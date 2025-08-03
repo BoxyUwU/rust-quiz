@@ -1,87 +1,13 @@
-error[E0782]: trait objects must include the `dyn` keyword
+error[E0782]: expected a type, found a trait
  --> examples/misc_5.rs:8:5
   |
 8 |     Sub::assoc()
   |     ^^^
   |
-help: add `dyn` keyword before this trait
+help: you can add the `dyn` keyword if you want a trait object
   |
 8 |     <dyn Sub>::assoc()
   |     ++++    +
 
-error[E0038]: the trait `Sub` cannot be made into an object
- --> examples/misc_5.rs:8:5
-  |
-8 |     Sub::assoc()
-  |     ^^^ `Sub` cannot be made into an object
-  |
-note: for a trait to be "object safe" it needs to allow building a vtable to allow the call to be resolvable dynamically; for more information visit <https://doc.rust-lang.org/reference/items/traits.html#object-safety>
- --> examples/misc_5.rs:2:8
-  |
-2 |     fn assoc() -> Self;
-  |        ^^^^^ ...because associated function `assoc` has no `self` parameter
-...
-5 | trait Sub: Super {}
-  |       --- this trait cannot be made into an object...
-help: consider turning `assoc` into a method by giving it a `&self` argument
-  |
-2 |     fn assoc(&self) -> Self;
-  |              +++++
-help: alternatively, consider constraining `assoc` so it does not apply to trait objects
-  |
-2 |     fn assoc() -> Self where Self: Sized;
-  |                        +++++++++++++++++
-
-error[E0308]: mismatched types
- --> examples/misc_5.rs:8:5
-  |
-7 | fn f<T: Sub>() -> T {
-  |      -            -
-  |      |            |
-  |      |            expected `T` because of return type
-  |      |            help: consider using an impl return type: `impl Sub`
-  |      expected this type parameter
-8 |     Sub::assoc()
-  |     ^^^^^^^^^^^^ expected type parameter `T`, found `dyn Sub`
-  |
-  = note: expected type parameter `T`
-               found trait object `dyn Sub`
-  = help: type parameters must be constrained to match other types
-  = note: for more information, visit https://doc.rust-lang.org/book/ch10-02-traits.html#traits-as-parameters
-  = note: the caller chooses a type for `T` which can be different from `dyn Sub`
-
-error[E0038]: the trait `Sub` cannot be made into an object
- --> examples/misc_5.rs:8:5
-  |
-8 |     Sub::assoc()
-  |     ^^^^^^^^^^^^ `Sub` cannot be made into an object
-  |
-note: for a trait to be "object safe" it needs to allow building a vtable to allow the call to be resolvable dynamically; for more information visit <https://doc.rust-lang.org/reference/items/traits.html#object-safety>
- --> examples/misc_5.rs:2:8
-  |
-2 |     fn assoc() -> Self;
-  |        ^^^^^ ...because associated function `assoc` has no `self` parameter
-...
-5 | trait Sub: Super {}
-  |       --- this trait cannot be made into an object...
-help: consider turning `assoc` into a method by giving it a `&self` argument
-  |
-2 |     fn assoc(&self) -> Self;
-  |              +++++
-help: alternatively, consider constraining `assoc` so it does not apply to trait objects
-  |
-2 |     fn assoc() -> Self where Self: Sized;
-  |                        +++++++++++++++++
-
-error[E0277]: the size for values of type `dyn Sub` cannot be known at compilation time
- --> examples/misc_5.rs:8:5
-  |
-8 |     Sub::assoc()
-  |     ^^^^^^^^^^^^ doesn't have a size known at compile-time
-  |
-  = help: the trait `Sized` is not implemented for `dyn Sub`
-  = note: the return type of a function must have a statically known size
-
-Some errors have detailed explanations: E0038, E0277, E0308, E0782.
-For more information about an error, try `rustc --explain E0038`.
-error: could not compile `code` (example "misc_5") due to 5 previous errors
+For more information about this error, try `rustc --explain E0782`.
+error: could not compile `code` (example "misc_5") due to 1 previous error
