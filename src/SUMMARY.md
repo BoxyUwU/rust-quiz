@@ -18,6 +18,7 @@
 - [Miscellaneous 6](./misc/6.md)
 - [Miscellaneous 8](./misc/8.md)
 - [Miscellaneous 9](./misc/9.md)
+- [Miscellaneous 10](./misc/10.md)
 
 
 # Trait Solver
