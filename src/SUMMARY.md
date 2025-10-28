@@ -16,6 +16,7 @@
 - [Miscellaneous 4](./misc/4.md)
 - [Miscellaneous 5](./misc/5.md)
 - [Miscellaneous 6](./misc/6.md)
+- [Miscellaneous 7](./misc/7.md)
 - [Miscellaneous 8](./misc/8.md)
 - [Miscellaneous 9](./misc/9.md)
 - [Miscellaneous 10](./misc/10.md)
