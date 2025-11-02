@@ -1,0 +1,2 @@
+[examples/misc_7.rs:18:5] capture!(2 + 3) = 5
+[examples/misc_7.rs:19:5] transform!(2 + 3) = 6

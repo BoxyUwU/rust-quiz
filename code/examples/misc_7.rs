@@ -14,6 +14,7 @@ macro_rules! transform {
 }
 
 fn main() {
-    let x = capture!(2 + 3);
-    println!("{}", x); // what this will print?
+    // what will be output of this macro calls
+    dbg!(capture!(2 + 3));
+    dbg!(transform!(2 + 3));
 }
