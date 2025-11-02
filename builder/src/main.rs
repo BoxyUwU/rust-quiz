@@ -1,11 +1,15 @@
 use std::{path::Path, thread};
 
-use eyre::{ensure, Context, OptionExt};
+use eyre::{Context, OptionExt, ensure};
+use regex::Regex;
 
 fn main() -> eyre::Result<()> {
     // Ensure rustup picks up the rust-toolchain.toml file properly and doesn't get confused by this cargo run.
-    std::env::remove_var("CARGO");
-    std::env::remove_var("RUSTUP_TOOLCHAIN");
+    // SAFETY: This is at the start of main, no other threads are running.
+    unsafe {
+        std::env::remove_var("CARGO");
+        std::env::remove_var("RUSTUP_TOOLCHAIN");
+    }
 
     let root_dir = Path::new("..")
         .canonicalize()
@@ -87,7 +91,8 @@ fn run_example(examples_dir: &Path, filename: &str) -> eyre::Result<()> {
     cmd.arg(example_name);
 
     let out = cmd.output().wrap_err("spawning cargo")?;
-    let stderr = String::from_utf8(out.stderr).wrap_err("stderr was invalid UTF-8")?;
+    let stderr =
+        normalize_stderr(String::from_utf8(out.stderr).wrap_err("stderr was invalid UTF-8")?);
 
     let stderr_dir = examples_dir.join("stderr");
     let path = stderr_dir.join(format!("{example_name}.stderr"));
@@ -95,6 +100,15 @@ fn run_example(examples_dir: &Path, filename: &str) -> eyre::Result<()> {
         .wrap_err_with(|| format!("writing stderr to {}", path.display()))?;
 
     Ok(())
+}
+
+fn normalize_stderr(stderr: String) -> String {
+    // thread 'main' (16399) panicked -> thread 'main' (???) panicked
+
+    Regex::new(r"thread 'main' \(\d+\) panicked")
+        .unwrap()
+        .replace(&stderr, "thread 'main' (???) panicked")
+        .into()
 }
 
 /// Ensures there is output for the toolchain and that the installation doesn't pollute stderr.

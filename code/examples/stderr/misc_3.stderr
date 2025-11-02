@@ -1,7 +1,7 @@
 error[E0599]: no method named `func` found for struct `Foo` in the current scope
   --> examples/misc_3.rs:10:9
    |
-1  | struct Foo {
+ 1 | struct Foo {
    | ---------- method `func` not found for this struct
 ...
 10 |     foo.func();
