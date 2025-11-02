@@ -11,10 +11,18 @@ error[E0382]: use of moved value: `x`
 note: consider changing this parameter type in function `r2_once` to borrow instead if owning the value isn't necessary
   --> examples/borrowck_6.rs:5:15
    |
-5  | fn r2_once(_: R2){}
+ 5 | fn r2_once(_: R2){}
    |    -------    ^^ this parameter takes ownership of the value
    |    |
    |    in this function
+note: if `R2<'_>` implemented `Clone`, you could clone the value
+  --> examples/borrowck_6.rs:2:1
+   |
+ 2 | struct R2<'a>(&'a mut i32);
+   | ^^^^^^^^^^^^^ consider implementing `Clone` for this type
+...
+13 |     r2_once(x);
+   |             - you could clone this value
 
 For more information about this error, try `rustc --explain E0382`.
 error: could not compile `code` (example "borrowck_6") due to 1 previous error

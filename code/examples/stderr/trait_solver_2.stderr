@@ -6,9 +6,13 @@ error[E0277]: the trait bound `for<'a> <A as Trait<'a, _>>::Assoc: Bound` is not
    |     |
    |     required by a bound introduced by this call
    |
-   = help: the following other types implement trait `Bound`:
-             B
-             C
+help: the following other types implement trait `Bound`
+  --> examples/trait_solver_2.rs:11:1
+   |
+11 | impl Bound for B {}
+   | ^^^^^^^^^^^^^^^^ `B`
+12 | impl Bound for C {}
+   | ^^^^^^^^^^^^^^^^ `C`
 note: this is a known limitation of the trait solver that will be lifted in the future
   --> examples/trait_solver_2.rs:30:7
    |

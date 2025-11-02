@@ -21,16 +21,21 @@ warning: the type `[u32; 100]` does not permit being left uninitialized
    |
    = note: integers must be initialized
 
-error: Undefined Behavior: using uninitialized data, but this operation requires initialized memory
+error: Undefined Behavior: reading memory at alloc133[0x0..0x1], but memory is uninitialized at [0x0..0x1], and this operation requires initialized memory
  --> examples/unsafe_2.rs:5:38
   |
 5 |     let random_number: u8 = unsafe { MaybeUninit::uninit().assume_init() };
-  |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ using uninitialized data, but this operation requires initialized memory
+  |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here
   |
   = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior
   = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information
   = note: BACKTRACE:
   = note: inside `main` at examples/unsafe_2.rs:5:38: 5:73
+
+Uninitialized memory occurred at alloc133[0x0..0x1], in this allocation:
+alloc133 (stack variable, size: 1, align: 1) {
+    __                                              │ ░
+}
 
 note: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace
 

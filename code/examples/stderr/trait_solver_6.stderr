@@ -11,7 +11,7 @@ error[E0308]: mismatched types
 note: function defined here
   --> examples/trait_solver_6.rs:5:4
    |
-5  | fn accepts_func(b: fn(&u32), c: &u32) {
+ 5 | fn accepts_func(b: fn(&u32), c: &u32) {
    |    ^^^^^^^^^^^^ -----------
 
 For more information about this error, try `rustc --explain E0308`.

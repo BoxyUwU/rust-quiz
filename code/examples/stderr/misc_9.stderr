@@ -10,7 +10,7 @@ error[E0423]: expected value, found struct `Struct`
 error[E0423]: expected value, found struct `Struct`
   --> examples/misc_9.rs:20:5
    |
-3  | struct Struct {}
+ 3 | struct Struct {}
    | ---------------- `Struct` defined here
 ...
 20 |     Struct = Struct {};
@@ -19,7 +19,7 @@ error[E0423]: expected value, found struct `Struct`
 error[E0618]: expected function, found struct `Unit`
   --> examples/misc_9.rs:10:5
    |
-1  | struct Unit;
+ 1 | struct Unit;
    | ----------- struct `Unit` defined here
 ...
 10 |     Unit();
@@ -36,7 +36,7 @@ help: `Unit` is a unit struct, and does not take parentheses to be constructed
 error[E0423]: expected function, tuple struct or tuple variant, found struct `Struct`
   --> examples/misc_9.rs:12:5
    |
-3  | struct Struct {}
+ 3 | struct Struct {}
    | ---------------- `Struct` defined here
 ...
 12 |     Struct();
