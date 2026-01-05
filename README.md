@@ -21,4 +21,4 @@ Each question is composed of three parts:
 3. The markdown file combining the above two parts and containing the solution to the question
     - Located at `src/<category>/N.md`
 
-Each question is associated with a list of people who are credited with authoring the question. This is denoted by a list of `@GithubUsername` after the question title in its markdown file. When in doubt err on the side of  
+Each question is associated with a list of people who are credited with authoring the question. This is denoted by a list of `@GithubUsername` after the question title in its markdown file. When in doubt err on the side of adding an author to the question.
