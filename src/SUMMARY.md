@@ -1,42 +1,36 @@
 # Summary
 
-- [Introduction](./index.md)
+[Introduction](./index.md)
 
-# Unsafe
+# Questions
 
-- [Unsafe 1](./unsafe/1.md)
-- [Unsafe 2](./unsafe/2.md)
-- [Unsafe 3](./unsafe/3.md)
-
-# Miscellaneous
-
-- [Miscellaneous 1](./misc/1.md)
-- [Miscellaneous 2](./misc/2.md)
-- [Miscellaneous 3](./misc/3.md)
-- [Miscellaneous 4](./misc/4.md)
-- [Miscellaneous 5](./misc/5.md)
-- [Miscellaneous 6](./misc/6.md)
-- [Miscellaneous 7](./misc/7.md)
-- [Miscellaneous 8](./misc/8.md)
-- [Miscellaneous 9](./misc/9.md)
-- [Miscellaneous 10](./misc/10.md)
-
-
-# Trait Solver
-
-- [Trait Solver 1](./trait_solver/1.md)
-- [Trait Solver 2](./trait_solver/2.md)
-- [Trait Solver 3](./trait_solver/3.md)
-- [Trait Solver 4](./trait_solver/4.md)
-- [Trait Solver 5](./trait_solver/5.md)
-- [Trait Solver 6](./trait_solver/6.md)
-- [Trait Solver 7](./trait_solver/7.md)
-
-# Borrow Checker
-
-- [Borrow Checker 1](./borrowck/1.md)
-- [Borrow Checker 2](./borrowck/2.md)
-- [Borrow Checker 3](./borrowck/3.md)
-- [Borrow Checker 4](./borrowck/4.md)
-- [Borrow Checker 5](./borrowck/5.md)
-- [Borrow Checker 6](./borrowck/6.md)
+- [Unsafe](./unsafe.md)
+    - [Null Pointer Derefs](./unsafe/1.md)
+    - [Random Number Generator](./unsafe/2.md)
+    - [Pointer Writes to a Vec](./unsafe/3.md)
+- [Miscellaneous](./misc.md)
+    - [Array Transmutery](./misc/1.md)
+    - [Boxy Fake Bones](./misc/2.md)
+    - [Printing Time](./misc/3.md)
+    - [The Dastardly Hashmap](./misc/4.md)
+    - [Super Trait Ultra Associated Item](./misc/5.md)
+    - [Temporary name](./misc/6.md)
+    - [Quantum Captures](./misc/7.md)
+    - [We're in Spaaaaace](./misc/8.md)
+    - [Construction Site](./misc/9.md)
+    - [Threadsafe Pointer!?](./misc/10.md)
+- [Trait Solver](./trait_solver.md)
+    - [Uhm..](./trait_solver/1.md)
+    - [Type System 2](./trait_solver/2.md)
+    - [Slices are Sized Right?](./trait_solver/3.md)
+    - [Higher ranked APIT bounds](./trait_solver/4.md)
+    - [Supertraits and Coherence](./trait_solver/5.md)
+    - [Function Rights](./trait_solver/6.md)
+    - [Schrödinger's Borrows](./trait_solver/7.md)
+- [Borrow Checker](./borrowck.md)
+    - [Top to Bottom](./borrowck/1.md)
+    - [A Whole Wide Universe](./borrowck/2.md)
+    - [Close Encounters of the Net Kind](./borrowck/3.md)
+    - [Irrecoverably Scarred](./borrowck/4.md)
+    - [Much Ado About Nothing](./borrowck/5.md)
+    - [Loansharks](./borrowck/6.md)

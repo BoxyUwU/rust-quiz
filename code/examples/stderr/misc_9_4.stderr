@@ -1,0 +1,20 @@
+error[E0423]: expected value, found struct `Struct`
+ --> examples/misc_9_4.rs:8:5
+  |
+3 | struct Struct {}
+  | ---------------- `Struct` defined here
+...
+8 |     Struct = Struct {};
+  |     ^^^^^^ help: use struct literal syntax instead: `Struct {}`
+
+error[E0070]: invalid left-hand side of assignment
+ --> examples/misc_9_4.rs:7:11
+  |
+7 |     Tuple = Tuple();
+  |     ----- ^
+  |     |
+  |     cannot assign to this expression
+
+Some errors have detailed explanations: E0070, E0423.
+For more information about an error, try `rustc --explain E0070`.
+error: could not compile `code` (example "misc_9_4") due to 2 previous errors

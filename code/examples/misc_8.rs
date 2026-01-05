@@ -4,7 +4,7 @@
 struct bar {}
 fn bar() {}
 
-struct foo();
+const foo: usize = 1;
 fn foo() {}
 // ANCHOR_END:matters
 

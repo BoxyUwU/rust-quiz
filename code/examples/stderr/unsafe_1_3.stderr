@@ -1,13 +1,13 @@
 error: Undefined Behavior: memory access failed: attempting to access 4 bytes, but got null pointer
- --> examples/unsafe_1_3.rs:6:14
+ --> examples/unsafe_1_3.rs:7:14
   |
-6 |         _ = (*std::ptr::null::<u32>(),);
+7 |         _ = (*std::ptr::null::<u32>(),);
   |              ^^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here
   |
   = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior
   = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information
   = note: BACKTRACE:
-  = note: inside `main` at examples/unsafe_1_3.rs:6:14: 6:38
+  = note: inside `main` at examples/unsafe_1_3.rs:7:14: 7:38
 
 note: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace
 
