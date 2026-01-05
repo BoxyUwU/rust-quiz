@@ -1,7 +1,6 @@
 [book]
 authors = ["BoxyUwU"]
 language = "en"
-multilingual = false
 src = "src"
 title = "Unfair Rust Quiz"
 
@@ -9,5 +8,9 @@ title = "Unfair Rust Quiz"
 additional-css = ["assets/quiz.css"]
 additional-js = ["assets/quiz.js"]
 git-repository-url = "https://github.com/BoxyUwU/rust-quiz"
-no-section-label = true
+no-section-label = false
 playground.runnable = false
+
+[output.html.fold]
+enable = true
+level = 1

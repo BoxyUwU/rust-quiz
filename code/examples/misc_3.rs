@@ -1,15 +1,11 @@
+// ANCHOR:matters
 struct Foo {
     func: fn(),
-}
-
-fn print_heheh() {
-    println!("ferrisUwu")
 }
 
 fn bar(foo: Foo) {
     foo.func();
 }
+// ANCHOR_END:matters
 
-fn main() {
-    bar(Foo { func: print_heheh });
-}
+fn main() {}

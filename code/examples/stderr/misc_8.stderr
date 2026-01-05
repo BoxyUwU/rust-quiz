@@ -1,8 +1,8 @@
 error[E0428]: the name `foo` is defined multiple times
  --> examples/misc_8.rs:8:1
   |
-7 | struct foo();
-  | ------------- previous definition of the value `foo` here
+7 | const foo: usize = 1;
+  | --------------------- previous definition of the value `foo` here
 8 | fn foo() {}
   | ^^^^^^^^ `foo` redefined here
   |
