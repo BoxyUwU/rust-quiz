@@ -14,7 +14,7 @@
     - [Printing Time](./misc/3.md)
     - [The Dastardly Hashmap](./misc/4.md)
     - [Super Trait Ultra Associated Item](./misc/5.md)
-    - [Temporary name](./misc/6.md)
+    - [Temporary Name](./misc/6.md)
     - [Quantum Captures](./misc/7.md)
     - [We're in Spaaaaace](./misc/8.md)
     - [Construction Site](./misc/9.md)
