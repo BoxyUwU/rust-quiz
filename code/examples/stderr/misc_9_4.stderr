@@ -1,0 +1,14 @@
+error[E0423]: expected value, found type alias `TypeUnit`
+  --> examples/misc_9_4.rs:12:5
+   |
+12 |     TypeUnit;
+   |     ^^^^^^^^ not a value
+
+error[E0423]: expected function, tuple struct or tuple variant, found type alias `TypeTuple`
+  --> examples/misc_9_4.rs:11:5
+   |
+11 |     TypeTuple();
+   |     ^^^^^^^^^ not a function, tuple struct or tuple variant
+
+For more information about this error, try `rustc --explain E0423`.
+error: could not compile `code` (example "misc_9_4") due to 2 previous errors
