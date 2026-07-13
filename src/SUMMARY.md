@@ -19,6 +19,7 @@
     - [We're in Spaaaaace](./misc/8.md)
     - [Construction Site](./misc/9.md)
     - [Threadsafe Pointer!?](./misc/10.md)
+    - [Closure fun](./misc/11.md)
 - [Trait Solver](./trait_solver.md)
     - [Uhm..](./trait_solver/1.md)
     - [Type System 2](./trait_solver/2.md)

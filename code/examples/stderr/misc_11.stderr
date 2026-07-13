@@ -1,0 +1,8 @@
+error[E0554]: `#![feature]` may not be used on the stable release channel
+ --> examples/misc_11.rs:1:1
+  |
+1 | #![feature(try_as_dyn)]
+  | ^^^^^^^^^^^^^^^^^^^^^^^
+
+For more information about this error, try `rustc --explain E0554`.
+error: could not compile `code` (example "misc_11") due to 1 previous error
